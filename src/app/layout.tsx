@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/src/lib/utils";
-import { StrictMode } from "react";
+import { NavBar } from "@/src/components/organisms/nav-bar";
 
 const poppins = Poppins({
   variable: "--font-sans",
@@ -25,10 +25,12 @@ export default function RootLayout({
     <html
       lang="es"
       className={cn("h-full", "antialiased", "font-sans", poppins.variable)}
+      suppressHydrationWarning
     >
-      <StrictMode>
-        <body className="flex min-h-full flex-col">{children}</body>
-      </StrictMode>
+      <body className="flex min-h-full flex-col">
+        <NavBar />
+        <div className="flex flex-col p-6">{children}</div>
+      </body>
     </html>
   );
 }
