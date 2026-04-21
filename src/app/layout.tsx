@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={cn("h-full", "antialiased", "font-sans", poppins.variable)}
+      className={cn("h-full", "antialiased", "font-sans", poppins.className)}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col">
