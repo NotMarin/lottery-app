@@ -1,7 +1,6 @@
 import { Calendar, DollarSign, Play, ReceiptText } from "lucide-react";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -39,36 +38,33 @@ export default function HomeLayout() {
 
   return (
     <div>
-      <main className="flex flex-col max-md:items-center">
-        <div className="grid w-full gap-4 max-md:grid-cols-1 md:grid-cols-2 lg:grid-cols-[20%_1fr]">
-          <div className="flex w-full flex-col gap-4">
-            <Card>
-              <CardHeader>
-                <CardTitle>¡Bienvenido!</CardTitle>
-                <CardDescription>Haz el número ganador.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  Administra tus números, loterías activas y seguimiento diario
-                  desde un solo lugar.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <p className="flex gap-1">
-                  <Calendar size={16} />
-                  {formattedDate}
-                </p>
-              </CardFooter>
-            </Card>
+      <main className="flex flex-col gap-6 max-md:items-center">
+        <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>¡Bienvenido!</CardTitle>
+              <CardDescription>Haz el número ganador.</CardDescription>
+            </CardHeader>
 
+            <CardFooter>
+              <p className="flex gap-1">
+                <Calendar size={16} />
+                {formattedDate}
+              </p>
+            </CardFooter>
+          </Card>
+
+          {cards.map((card) => (
+            <StatCard key={card.title} {...card} />
+          ))}
+        </div>
+
+        <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-4">
+          <div className="col-span-1">
             <TicketForm />
           </div>
-          <div className="flex w-full flex-col gap-4">
-            <div className="grid w-full gap-4 max-md:grid-cols-1 lg:grid-cols-3">
-              {cards.map((card) => (
-                <StatCard key={card.title} {...card} />
-              ))}
-            </div>
+
+          <div className="col-span-3">
             <TableCard />
           </div>
         </div>

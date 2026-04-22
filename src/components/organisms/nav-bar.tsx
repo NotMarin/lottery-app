@@ -31,7 +31,7 @@ const navigationData = [
 export function NavBar() {
   return (
     <header className="bg-background/90 supports-[backdrop-filter]:bg-background/70 sticky top-0 z-50 w-full border-b backdrop-blur">
-      <nav className="flex h-16 items-center justify-between px-4">
+      <nav className="flex h-16 items-center justify-between px-6">
         <Link
           href="/"
           className="flex items-center justify-center gap-2 text-xl font-bold tracking-tight"
